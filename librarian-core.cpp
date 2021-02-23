@@ -9,6 +9,26 @@
 #include <iterator>
 using namespace std;
 
+//add roots to a root library
+void add_root_library( string input_data ){ //next edit: centralize library editing
+    //check for repeats
+    //string your_library_str = read_root_library();
+    //int add_ind = your_library_str.find( input_data );
+    //if( add_ind != string::npos ){
+    //        cout << "Requested sound already in library" << endl;
+    //    } else{
+            ofstream rootslibry;
+            rootslibry.open("roots-library.txt", ios_base::app);
+            if( !rootslibry ){
+                cout << "File edit error" << endl;
+            } else{
+                rootslibry << " ";
+                rootslibry << input_data;
+            }
+            rootslibry.close();
+    //}
+}
+
 //read sounds from a sound library
 string read_sound_library(){
     string your_library_str = "";
@@ -55,7 +75,6 @@ void edit_sound_library( string input_data ){
         //check for repeats
         string your_library_str = read_sound_library();
         int add_ind = your_library_str.find( edit_sound ); 
-        //next edit: check if listed sound
         if( add_ind != string::npos ){
             cout << "Requested sound already in library" << endl;
         } else{
@@ -155,6 +174,9 @@ void interface(){
                 cout << "Root selection" << endl;
                 //
                 input_data = get_input();
+                if( input_data != "^" && input_data != "e"){
+                    add_root_library( input_data );
+                }
             } else if( type_state == 3 ){
                 cout << endl;
                 cout << "Word selection" << endl;
