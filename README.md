@@ -5,3 +5,5 @@ Conlang librarian is a helper tool for creators of constructed languages.
 -|Users keep a record of important grammar rules.
 
 -|Users can develop libraries of example sentences made up of established letters.
+
+-|Users can keep a searchable database of words and meanings.
